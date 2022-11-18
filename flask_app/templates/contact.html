@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+    <script src="https://kit.fontawesome.com/f217b10d44.js" crossorigin="anonymous"></script>
+    <title>Contact Us</title>
+</head>
+<body>
+    <nav>
+        <div id="navbar" class="d-flex align-items-center">
+            <div id="navbar-content" class="d-flex align-items-center justify-content-between">
+                <div id="nav-img" class="d-flex align-items-center">
+                    <img src="/static/img/car-img.png" alt="logo">
+                    <p><a href="/">Car Wash Supreme</a></p>
+                </div>
+                <div id="nav-list">
+                    <ul class="d-flex justify-content-evenly align-items-center">
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="/reviews">Reviews</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        {% if session['user_id'] %}
+                        <li><a href="/logout">
+                            <button class="btn">Logout</button>
+                        </a></li>
+                        {% else %}
+                        <li><a href="/login_page">
+                            <button class="btn">Login</button>
+                        </a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- body of website -->
+    <div id="container-1">
+        <div id="vid-container">
+            <video autoplay loop muted id="vid">
+                <source src="/static/img/contact1.mp4" type="video/mp4">
+            </video>
+            <h1 id="center-text" class="text-center">--Contact Us--</h1>
+        </div>
+    </div>
+    </div>
+    <div id="container-2">
+        <h1 class="text-center mt-3">Contact</h1>
+        <div id="form-container" class="d-flex justify-content-center align-items-center">
+            <div class="card w-50">
+                <div class="card-header">
+                    <p class="test fs-2">Send us a Message!</p>
+                </div>
+                <div class="card-body">
+                    <form action="/contact_post" method="post" class="form">
+                        <label for="formControlInput" class="form-label">First name:</label>
+                        <input type="text" class="form-control" id="formControlInput" placeholder="First Name*" name="first_name">
+                        <label for="formControlInput" class="form-label">Last name:</label>
+                        <input type="text" class="form-control" id="formControlInput" placeholder="Last Name*" name="last_name">
+                        <label for="formControlInput" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="formControlInput" placeholder="Email*" name="email">
+                        <label for="formControlInput" class="form-label">Phone:</label>
+                        <input type="tel" class="form-control" id="formControlInput" placeholder="123-456-7890" name="phone-num" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                        <label for="contact" class="form-label mt-2">Preferred Method of Contact?</label>
+                        <select class="form-select" aria-label="Default select" name="contact">
+                            <option value="" selected>-- Select an Option --</option>
+                            <option value="Phone">Phone</option>
+                            <option value="Email">Email</option>
+                        </select>
+                        <label for="formControlInput" class="form-label mt-2">Comments:</label>
+                        <div class="form-floating">
+                            <textarea class="form-control" id="floatingTextarea" style="height: 100px" name="comments"></textarea>
+                        </div>
+                        <button type="submit" class="mt-3 button">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div id="footer-container" class="d-flex align-items-center justify-content-evenly">
+            <div class="footer-list">
+                <h5 class="mb-4">Useful Links</h5>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/reviews">Reviews</a></li>
+                    <li><a href="#">Products</a></li>
+                </ul>
+            </div>
+            <div class="footer-list">
+                <h5 class="mb-4">Our Services</h5>
+                <ul>
+                    <li><a href="#">General Services</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                    <li><a href="#">Wash Packages</a></li>
+                </ul>
+            </div>
+            <div class="footer-list">
+                <h5 class="mb-4">Get in Touch</h5>
+                <p>We'd love to hear from our valued customers, below <br>are places where you can reach us! </p>
+                <ul>
+                    <li class="mb-2">
+                        <i class="fa-solid fa-phone mr-5"></i>
+                        <a href="#">+1 (123) 456 7890</a>
+                    </li>
+                    <li class="mb-2">
+                        <i class="fa-sharp fa-solid fa-envelope"></i>
+                        <a href="#">bestcarwash@carwash.com</a>
+                    </li>
+                    <li>
+                        <i class="fa-sharp fa-solid fa-location-dot"></i>
+                        <a href="#">123 Street, Dallas, Texas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

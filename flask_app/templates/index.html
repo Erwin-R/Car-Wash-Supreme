@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
+    <script src="https://kit.fontawesome.com/f217b10d44.js" crossorigin="anonymous"></script>
+    <title>Home Page</title>
+</head>
+<body>
+    <nav>
+        <div id="navbar" class="d-flex align-items-center">
+            <div id="navbar-content" class="d-flex align-items-center justify-content-between">
+                <div id="nav-img" class="d-flex align-items-center">
+                    <img src="/static/img/car-img.png" alt="logo">
+                    <p><a href="/">Car Wash Supreme</a></p>
+                </div>
+                <div>
+                    {% if session['authorized'] %}
+                    <h1>Welcome {{user.username}}</h1>
+                    {% endif %}
+                </div>
+                <div id="nav-list">
+                    <ul class="d-flex justify-content-evenly align-items-center">
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="/reviews">Reviews</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        {% if session['user_id'] %}
+                        <li><a href="/logout">
+                            <button class="btn">Logout</button>
+                        </a></li>
+                        {% else %}
+                        <li><a href="/login_page">
+                            <button class="btn">Login</button>
+                        </a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- body of website -->
+    <div id="container-1">
+        <div class="carousel">
+            <div class="carousel__item">
+                <div class="d-flex justify-content-around" id="slide1-container">
+                    <div class="image-container d-flex justify-content-center">
+                        <img src="/static/img/carousel-image1.jpg" alt="slide 1" class="slide1">
+                    </div>
+                    <div id="slide1-text" class="">
+                        <h1>#1 Car Wash Service Provider</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam perspiciatis voluptate nesciunt quis reprehenderit magnam culpa ipsum ut modi cum sint itaque explicabo non, illo veritatis voluptas amet eum quaerat.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel__item">
+                <div class="d-flex justify-content-around" id="slide2-container">
+                    <div class="image-container d-flex justify-content-center">
+                        <img src="/static/img/slide2.jpg" alt="slide 2" class="slide2">
+                    </div>
+                    <div id="slide2-text">
+                        <h1>Leave the Dirt Behind</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, id laboriosam amet porro quas magnam numquam earum eveniet sed libero praesentium corrupti temporibus maxime illo accusamus molestias assumenda recusandae quod.</p>
+                        <br>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit possimus, quasi iusto ipsum, quidem accusamus repudiandae odio maiores perferendis non dolorum amet cum officia nihil, quae dolor fuga voluptatem alias.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel__item">
+                <div class="d-flex justify-content-around" id="slide2-container">
+                    <div class="image-container d-flex justify-content-center">
+                        <img src="/static/img/slide3.jpg" alt="slide 3" class="slide3">
+                    </div>
+                    <div id="slide2-text">
+                        <h1>Your Car Gets Cleaned Inside Out!</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate architecto assumenda at doloribus. Impedit, dolor ipsa. Ut maiores totam sit voluptatum doloribus! Ipsam facilis dicta eum et atque aut ut!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="container-2" class="d-flex justify-content-around mt-4">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">About Us</h1>
+                <h5 class="card-subtitle mb-2">Clean. Shiny. Dry.</h5>
+                <p class="card-text">Here at Car Wash Supreme, one of our top priorities is making sure that your most treasured possession, your car, is the cleanest it can be! We strive to provide a fast, clean, and efficient car wash experience. </p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body" id="card2">
+                <h1 class="card-title">Find a Location</h1>
+                <h5 class="card-subtitle mb-2">Always striving to deliver more!</h5>
+                <p class="card-text">With the company growing everyday, you'll be sure to expect many new and convenient locations. Find the nearest car wash here!</p>
+                <div id="card-button">
+                    <button>View All Locations</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="container-3">
+        <div id="vid-container">
+            <video autoplay loop muted class="vid">
+                <source src="/static/img/service-vid.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div id="book-app" class="d-flex justify-content-center align-items-center">
+            <div id="form-container">
+                <h1 class="p-3 text-light">Book Now!</h1>
+                <form name="book_appt" action="/book" method="post" class="d-flex justify-content-evenly mt-4">
+                    <div>
+                        <label for="car_type" class="text-light">Type of Car:</label>
+                        <select name="car_type">
+                            <option value="Sports Car" selected>Sports Car</option>
+                            <option value="Mercedes">Mercedes</option>
+                            <option value="Porsche">Porsche</option>
+                            <option value="Electric Car">Electric Car</option>
+                            <option value="BMW">BMW</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="service-date" class="text-light">Service Date:</label>
+                        <input type="date" name="service-date">
+                    </div>
+                    <div>
+                        <label for="return-date" class="text-light">Return Date:</label>
+                        <input type="date" name="return-date">
+                    </div>
+                    <input type="submit" class="book" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div id="footer-container" class="d-flex align-items-center justify-content-evenly">
+            <div class="footer-list">
+                <h5 class="mb-4">Useful Links</h5>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/reviews">Reviews</a></li>
+                    <li><a href="#">Products</a></li>
+                </ul>
+            </div>
+            <div class="footer-list">
+                <h5 class="mb-4">Our Services</h5>
+                <ul>
+                    <li><a href="#">General Services</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                    <li><a href="#">Wash Packages</a></li>
+                </ul>
+            </div>
+            <div class="footer-list">
+                <h5 class="mb-4">Get in Touch</h5>
+                <p>We'd love to hear from our valued customers, below <br>are places where you can reach us! </p>
+                <ul>
+                    <li class="mb-2">
+                        <i class="fa-solid fa-phone mr-5"></i>
+                        <a href="#">+1 (123) 456 7890</a>
+                    </li>
+                    <li class="mb-2">
+                        <i class="fa-sharp fa-solid fa-envelope"></i>
+                        <a href="#">bestcarwash@carwash.com</a>
+                    </li>
+                    <li>
+                        <i class="fa-sharp fa-solid fa-location-dot"></i>
+                        <a href="#">123 Street, Dallas, Texas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>

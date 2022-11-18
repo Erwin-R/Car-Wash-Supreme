@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+    <script src="https://kit.fontawesome.com/f217b10d44.js" crossorigin="anonymous"></script>
+    <title>Home Page</title>
+</head>
+<body>
+    <nav>
+        <div id="navbar" class="d-flex align-items-center">
+            <div id="navbar-content" class="d-flex align-items-center justify-content-between">
+                <div id="nav-img" class="d-flex align-items-center">
+                    <img src="/static/img/car-img.png" alt="logo">
+                    <p><a href="/">Car Wash Supreme</a></p>
+                </div>
+                <div id="nav-list">
+                    <ul class="d-flex justify-content-evenly align-items-center">
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="/reviews">Reviews</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        {% if session['user_id'] %}
+                        <li><a href="/logout">
+                            <button class="btn">Logout</button>
+                        </a></li>
+                        {% else %}
+                        <li><a href="/login_page">
+                            <button class="btn">Login</button>
+                        </a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- body of website -->
+    <div id="container-1">
+        <div id="vid-container">
+            <video autoplay loop muted id="vid">
+                <source src="/static/img/about1.mp4" type="video/mp4">
+            </video>
+            <h1 id="center-text" class="text-light">--About Us--</h1>
+        </div>
+    </div>
+    <div id="container-2" class="d-flex justify-content-between align-items-center">
+        <div class="image-container d-flex justify-content-center align-items-center">
+            <img src="/static/img/about2.jpg" alt="about-image" class="image">
+        </div>
+        <div class="about-text d-flex justify-content-center">
+            <div class="story">
+                <h1 class="text-center" style="font-size: 60px;"><b>Our Story</b></h1>
+                <p id="story-text">Many of us in leadership at Car Wash Supreme grew up watching F1, Nascar, and endurance racing . We watched Caroll Shelby become a racing legend as the first American to win the 24 Hours of Le Mans. <br>
+                <br>    
+                The Car Wash Supreme colors are representative of our founder's very own Honda Civic Type R. As a team of high-achievers, competitors and all-around go-getters, we bring an extra level of determination and drive to the way we run our business. We want to come in first no matter what car washes we're competing with, providing the highest-quality and most efficient washes in the state.</p>
+            </div>
+        </div>
+    </div>
+    <div id="container-3" class="d-flex justify-content-between align-items-center">
+        <div class="about-text d-flex justify-content-center">
+            <div class="story2">
+                <h3 class="text-light" style="font-size: 50px;"><b>Why Choose Us?</b></h3>
+                <h3 class="text-light" style="font-size: 30px;"><b>Quality Service Near You</b></h3>
+                <p class="text-light mt-3">We strive to put our best foot forward and provide quality car to your car. It's our attention to the small details that make us different from the rest. We pride ourselves on making an efficient use of time and making sure you can get your car back as soon as possible.</p>
+                <div class="text-light">
+                    <i class="fa-sharp fa-solid fa-arrow-right"></i>
+                    <span class="icon-text">Caring</span>
+                </div>
+                <p class="description">We care for all our employees, customers, and especially your cars. We work together as a team to deliver the best car wash experience.</p>
+                <div class="text-light">
+                    <i class="fa-sharp fa-solid fa-arrow-right"></i>
+                    <span class="icon-text">Striving to Improve</span>
+                </div>
+                <p class="description">Although we offer quality service, we that are striving to learn more everyday to help further deliver a better experience. We are never complacent.</p>
+            </div>
+        </div>
+        <div class="image-container d-flex justify-content-center align-items-center">
+            <img src="/static/img/about3.jpg" alt="about-image" class="image2">
+        </div>
+    </div>
+    <div id="container-4" class="d-flex justify-content-center align-items-center">
+        <div class="box">
+            <h1 class="text-light">Our Mission</h1>
+            <p>To give customers the most compelling car wash experience possible. </p>
+        </div>
+        <div class="box">
+            <h1 class="text-light">Our Vision</h1>
+            <p>To be the state's best car wash company by enhancing the lives of staff and customers.</p>
+        </div>
+    </div>
+    <div id="footer">
+        <div id="footer-container" class="d-flex align-items-center justify-content-evenly">
+            <div class="footer-list">
+                <h5 class="mb-4">Useful Links</h5>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/reviews">Reviews</a></li>
+                    <li><a href="#">Products</a></li>
+                </ul>
+            </div>
+            <div class="footer-list">
+                <h5 class="mb-4">Our Services</h5>
+                <ul>
+                    <li><a href="#">General Services</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                    <li><a href="#">Wash Packages</a></li>
+                </ul>
+            </div>
+            <div class="footer-list">
+                <h5 class="mb-4">Get in Touch</h5>
+                <p>We'd love to hear from our valued customers, below <br>are places where you can reach us! </p>
+                <ul>
+                    <li class="mb-2">
+                        <i class="fa-solid fa-phone mr-5"></i>
+                        <a href="#">+1 (123) 456 7890</a>
+                    </li>
+                    <li class="mb-2">
+                        <i class="fa-sharp fa-solid fa-envelope"></i>
+                        <a href="#">bestcarwash@carwash.com</a>
+                    </li>
+                    <li>
+                        <i class="fa-sharp fa-solid fa-location-dot"></i>
+                        <a href="#">123 Street, Dallas, Texas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

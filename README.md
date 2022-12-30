@@ -6,7 +6,7 @@ The inspiration behind this project came from a personal friend that wanted to s
 to provide the user with a modern and visually pleasing car wash website that stands out from other car wash websites.
 
 ## Car Wash Supreme Website Demo 
-Click this to view website demo!
+Click [this](https://youtu.be/OIDUvpLntOA) to view website demo!
 
 ## Car Wash Supreme Home Page Design
 ![image](https://user-images.githubusercontent.com/108560020/210034706-3209b0c4-cd40-43bc-9caa-5fdec9a14edf.png)

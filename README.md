@@ -17,3 +17,9 @@ Click [this](https://youtu.be/OIDUvpLntOA) to view website demo!
  ## Car Wash Supreme Contact Page
  ![image](https://user-images.githubusercontent.com/108560020/210035860-c112bcba-cc22-4b79-bbfc-436645311cc5.png)
 
+ ## Car Wash Supreme About Page
+ ![image](https://user-images.githubusercontent.com/108560020/210703825-184aa439-d85d-4ddd-92c9-2909f80f9507.png)
+ 
+  ## Car Wash Supreme Login/Registration Page
+  ![image](https://user-images.githubusercontent.com/108560020/210705440-b357e8fe-cc87-462e-b0ac-432637d3f899.png)
+
